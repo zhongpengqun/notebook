@@ -1,0 +1,12 @@
+site_name: My Docs
+theme: readthedocs
+
+nav:
+    - docs: ../docs
+plugins:
+  - search
+  - include_dir_to_nav:
+        sort_file: true
+        sort_directory: true
+        reverse_sort_directory: true
+        flat: false

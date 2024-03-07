@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+    blog:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: unless-stopped
+        expose:
+            - "8888"
+        ports:
+            - "7777:8888"
+        command: >
+            mkdocs serve -a 0.0.0.0:8888

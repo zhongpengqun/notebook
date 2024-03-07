@@ -1,0 +1,8 @@
+apiVersion: skaffold/v4beta2
+kind: Config
+build:
+  artifacts:
+  - image: docker.io/zhongpengqun/skaffold-example
+manifests:
+  rawYaml:
+  - k8s-pod.yaml

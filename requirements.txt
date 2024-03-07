@@ -1,0 +1,5 @@
+mkdocs==1.4.3
+#mkdocs-categories-plugin==0.2.1
+# doc: https://pypi.org/project/mkdocs-include-dir-to-nav/
+mkdocs-include-dir-to-nav==1.2.0
+pyperclip==1.8.2

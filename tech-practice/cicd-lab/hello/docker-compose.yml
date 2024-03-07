@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+    websvc:
+        build:
+            context: .
+            dockerfile: docker/websvc/Dockerfile
+            args:
+                USER_ID: ${USER_ID:-1001}
+        restart: unless-stopped
+        volumes:
+            - .:/var/scotzilla
+            - ./docker/runtime/osstpmgt.json:/var/osstpmgt.json
+        environment:
+            - PYTHONPATH=/var/scotzilla/webapps/:/var/scotzilla/pylib/:/var/scotzilla/
+        command: >
+            gunicorn osstpmgt.wsgi:application -t 300 -w 3 -b 0.0.0.0:8000
+                --log-level=warning
+                --limit-request-line=8190
+                --limit-request-field_size=65536
+                --access-logfile=/var/scotzilla/log/osstp-gunicorn-access.log
+        expose:
+            - "8000"
+        ports:
+            - "8000:8000"
+        depends_on:
+            - rabbitmq
+            - mailhog
+            - elasticsearch

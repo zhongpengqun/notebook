@@ -1,0 +1,14 @@
+version: '0.1'
+# Will search from these documents, item at first position takes higher priority 
+document_dirs:
+- /Users/vzhong/Documents/ZhongPengQun2.github.io/docs
+- /Users/vzhong/suoha
+- /Users/vzhong/osstpclients
+# Files with these extensions will be token account in
+extensions:
+- txt
+- md
+- properties
+exclude:
+- /Users/vzhong/suoha/materials/*
+- /Users/vzhong/Documents/ZhongPengQun2.github.io/docs/Temp/deprecated-tech-studying.md
