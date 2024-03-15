@@ -880,3 +880,53 @@ mylist = ["a", "b"]
     - 
     - The method put() will block if the queue has reached its maximum capacity or executed in blocking mode.
       - 默认有block=True,阻塞时间由timeout确定
+
+- sys.path.append
+  - `sys.path 返回的是一个列表,当我们要添加自己的搜索目录时,可以通过列表的 append() 方法,这种方法导入的路径会在 Python 程序退出后失效`
+
+- 使用 pd.isna() 判断常规缺失值 NaN（np.nan）和 None
+pd.isna(np.nan)  # 返回 True， NaN 被判断为缺失值
+pd.isna(None)    # 返回 True， None 被判断为缺失值
+pd.isna('')      # 返回 False，空字符不被判断为缺失值
+pd.isna('\n')    # 返回 False，换行符不被判断为缺失值
+pd.isna('\t')    # 返回 False，制表符不被判断为缺失值
+  - 我：为什么不直接 if not xxx 呢？可能是因为：
+```
+>>> if np.nan:
+...     print(1)
+...
+1
+```
+
+- data = df.at[0, 'a']
+  - 作用：获取某个位置的值，例如，获取第0行，第a列的值，即：index=0，columns='a'
+
+- np.radians 将角度转换为弧度
+
+- strftime('%j')
+  - 使用 strftime(‘%j’) 进行转换会返回用零填充的 3 位总天数
+  - 2023/04/01的总天数: 091
+
+- pd.concat()函数可以沿着指定的轴将多个dataframe或者series拼接到一起，这一点和另一个常用的pd.merge()函数不同，pd.merge()函数只能实现两个表的拼接
+
+- pd.api.types.is_datetime64_any_dtype 函数的返回值是一个布尔值，如果变量的数据类型是datetime64[ns]，则返回True，否则返回False
+
+- np.percentile(
+```
+>>> xxx=np.array([1,2,3,4,5,6,7,8,9])
+>>> print(np.percentile(xxx,1))
+1.08
+>>> print(np.percentile(xxx,60))
+5.8
+```
+```
+# 示例
+a = [1, 2, 10, 100] # or 'a = np.array([1, 2, 10, 100])' or 'a = range(10)'
+np.percentile(a, 1) # 1.03 => 1 + (2-1)/(100/3) = 1.03
+np.percentile(a, 100/3+1) # 2.240000000000002 => 2 + (10-2)/(100/3) = 2.24
+```
+
+- yy = df.sub(value).abs().idxmin()
+  - sub() 方法用指定的值减去 DataFrame 中的每个值
+  - abs() 方法返回 DataFrame 且其中每个值都是绝对值
+  - 各column上最小值的横index

@@ -49,6 +49,7 @@
 - The code is provided as-is with no warranties.
 - velocity
 - Censorship circumvention tool
+- crop coefficient 作物系数;
 - Lantern allows you to access sites blocked by internet censorship
 - Shard
 - revert
@@ -1302,6 +1303,10 @@ Though solutions differ for everybody in different families, what are the genera
   - 自动地，独自地
 - by no means
   - 决不，并没有
+- drought
+  - 干旱
+- irrigation
+  - 灌溉
 - by reason of
   - 由于
 - by virtue of

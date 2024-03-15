@@ -513,3 +513,6 @@ https://getsentry.github.io/symbolicator/advanced/source-bundles/
 
 - Apache-2.0 是宽松式协议（permissive license）的代表
 - 云服务（即 SAAS）
+
+
+- 转义字符

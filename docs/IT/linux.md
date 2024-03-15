@@ -503,3 +503,5 @@ ubuntu@ubuntu:~$ df -h
 	- `该参数限制用户所拥有的 namespace 数量。在 Kubernetes 中，每个容器都需要自己的 namespace，因此请确保将此值设置足够高以满足您的集群需求`
 
 - 磁盘 & 分区
+
+- tar -xvf drought-ET-irrigation-master.tar

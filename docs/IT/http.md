@@ -62,3 +62,7 @@ JSON Schema (json-schema) 本身是一段 JSON 格式的数据，如下例所示
         - `json串只能出现schema定义的属性`
     - 在线转schema辅助工具：https://www.lddgo.net/string/generate-json-schema
     
+- `json语法不支持注释，不支持字符串换行，所有的key都必须双引号，末尾不能有多余的逗号...等等，一大堆极其严格的要求和不支持的功能。由此诞生Json5`
+    - `JSON5是对JSON的扩展，让人可以更容易手工编写和维护`
+
+- Mockjs

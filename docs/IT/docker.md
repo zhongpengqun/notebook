@@ -84,6 +84,7 @@ FROM alpine:3
 # Define GOTRACEBACK to mark this container as using the Go language runtime
 # for `skaffold debug` (https://skaffold.dev/docs/workflows/debug/).
 ENV GOTRACEBACK=single
+# 据我观察，CMD 在 docker build的时候和docker run的时候都会执行
 CMD ["./app"]
 COPY --from=builder /app .
 ```
@@ -482,7 +483,10 @@ Sending build context to Docker daemon  175.5MB
     CMD ["make"]
     ```
     COPY会失败，原因是 `WORKDIR /tmp` 应该放在 `COPY osspi-cli .` 前面
-
+    我的理解是：. 表示当前工作路径，但是因为没有设置 WORKDIR，所以不知道.的绝对路径，如果改成 
+    COPY osspi-cli /
+    WORKDIR /
+    就不会报错
     - 
     ```
     ---> Running in b7d56f491c28
