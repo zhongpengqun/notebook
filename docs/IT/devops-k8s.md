@@ -529,3 +529,6 @@ ensure CRDs are installed first
 - kuboard
   - https://kuboard.cn/learning/
     - https://demo.kuboard.cn/kubernetes/kuboard-demo/namespace/default
+
+- kubectl delete -n $CI_NAMESPACE -f -
+  - ??

@@ -17,7 +17,8 @@
         - `docker stop $(docker ps -aq)`
     - run container from dockerfile
     ```shell
-    docker build -t xxx .  
+    docker build -t xxx .
+        - 用于创建并为镜像打上标签(tag)
     docker run -d xxx
 
     # ↓ docker build from file
@@ -605,3 +606,6 @@ denied: requested access to the resource is denied
 -------
 对要上传的镜像打 Tag，docker tag
 ```
+
+--dry-run=client：模拟创建pod，但不会真的创建
+

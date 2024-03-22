@@ -505,3 +505,12 @@ ubuntu@ubuntu:~$ df -h
 - 磁盘 & 分区
 
 - tar -xvf drought-ET-irrigation-master.tar
+
+
+envsubst
+	- Shell脚本，使用envsubst命令替换掉配置文件中配置项   https://www.jianshu.com/p/c45c08fb522b
+```
+export ENV="dev"
+envsubst < docker-compose-demo.yml > docker-compose.yml
+```
+
