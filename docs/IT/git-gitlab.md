@@ -358,3 +358,27 @@ s: https://stackoverflow.com/questions/68775869/message-support-for-password-aut
 - gitlab ipynb
 
 
+```
+C:\Users\zlzk>git clone git@github.com:zhongpengqun/zhongpengqun.github.io.git
+Cloning into 'zhongpengqun.github.io'...
+kex_exchange_identification: read: Software caused connection abort
+banner exchange: Connection to 20.205.243.166 port 22: Software caused connection abort
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+或
+
+C:\Users\zlzk> git clone https://github.com/zhongpengqun/zhongpengqun.github.io.git
+Cloning into 'zhongpengqun.github.io'...
+fatal: unable to access 'https://github.com/zhongpengqun/zhongpengqun.github.io.git/': Recv failure: Connection was reset
+
+------------
+用 github Desktop   https://desktop.github.com/
+亲测好用!!
+```
+
+-  before_script:
+  - 可以有多个吗？
+    - `用于定义在每个作业执行之前所运行的一系列脚本命令`，所以应该一个就够了
