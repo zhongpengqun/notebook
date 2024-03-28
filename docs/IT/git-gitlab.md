@@ -126,6 +126,14 @@ To push the current branch and set the remote as upstream, use
     git push --set-upstream origin vz-test-8
 
 vzhongPG3QC:osstpclients vzhong$ git push --set-upstream origin vz-test-8
+# 命令用于将当前分支的修改推送到远程仓库，并与指定的远程分支建立追踪关系。追踪关系是指本地分支和远程分支之间的关联关系，可以让我们更方便地进行代码的同步和管理
+# git push --set-upstream <remote> <branch>
+# 其中，<remote>表示远程仓库的名称，通常是origin，可以通过git remote命令查看已经配置的远程仓库。<branch>表示要推送的本地分支的名称
+  - 那如何查看origin的远程url呢？ git remote get-url origin 
+# 假设我们有一个本地分支叫做featureA，我们想要将它推送到远程仓库并追踪名为origin/featureA的远程分支，可以使用以下命令：
+# git push --set-upstream origin featureA  执行完上述命令后，如果origin/featureA分支不存在，则会在远程仓库中创建这个分支
+# git push --set-upstream-to不需要指定远程仓库的名称，而是直接使用当前仓库的默认远程仓库
+
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
 remote:
 remote: To create a merge request for vz-test-8, visit:
