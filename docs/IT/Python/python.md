@@ -975,3 +975,66 @@ c = np.concatenate((a, b))
 
 - df.drop(columns=['P'])
   - `最后，记得将修改后的DataFrame赋值给一个变量，或使用inplace=True参数来直接修改原始的DataFrame`
+
+
+lines = f.readlines()
+            ^^^^^^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xaa in position 1812: illegal multibyte sequence
+
+lines = f.readlines()
+            ^^^^^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb7 in position 1550: invalid start byte
+
+    with open(text_file_path, 'rb') as f:
+        lines = f.readlines()
+        last_lines = lines[-2:]
+        print("----------------")
+        print('\n'.join([x.decode('utf8') for x in last_lines]))
+        print("----------------")
+
+ t1.join()
+
+#将t线程设置成阻塞状态，直到t线程执行完后才能进入下一线程---------------- 
+
+.astype(---------------- 
+
+用于将 Series 或 DataFrame 中的数据转换为指定的数据类型---------------- 
+
+Return the cumulative sum of the elements along a given axis---------------- 
+
+numpy.cumsum---------------- 
+
+errors='coerce' 遇到不能转换的就会设置为NAN---------------- 
+
+sep='\s+'---------------- 
+
+\s+ 意思就是至少有一个空白字符存在---------------- 
+
+skiprows=11 跳过前面10行---------------- 
+
+wth_data.drop(wth_data.index[0], inplace=True)  # 删除第一行---------------- 
+
+A unique index is an index that contains non-duplicate labels. In such an index there cannot be two or more identical labels.---------------- 
+
+Monotonic Index
+Monotonicity is a mathematical property that indicates a given function maintains a non-increasing or non-decreasing order throughout its domain---------------- 
+
+Monotonic Index
+Monotonicity is a mathematical property that indicates a given function maintains a non-increasing or non-decreasing order throughout its domain---------------- 
+
+unique_index = pd.Index(list('abc'))
+unique_index.get_loc('b')
+1---------------- 
+
+>>> monotonic_index = pd.Index(list('abbc'))
+>>> monotonic_index.get_loc('b')
+slice(1, 3, None)---------------- 
+
+>>> non_monotonic_index = pd.Index(list('abcb'))
+>>> non_monotonic_index.get_loc('b')
+array([False,  True, False,  True])---------------- 
+
+# 使用 iloc 获取特定行和列的数据
+# 获取第二行（索引为1）的所有列数据
+row_1 = df.iloc[1, :]
