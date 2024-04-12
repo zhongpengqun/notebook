@@ -1800,4 +1800,16 @@ n.
 
 depletion   n. 损耗;缺乏；贫化；亏损;空虚；干枯;弄空，竭尽，耗尽，（资源）耗减;---------------- 
 
-Maximum allowable depletion or deficit (MAD)
+Maximum allowable depletion or deficit (MAD)---------------- 
+
+[2024-04-07 10:12:13 +0800] [17] [INFO] Booting worker with pid: 17---------------- 
+
+basal 基部的，基座的，基底的---------------- 
+
+row['Year-DOY']---------------- 
+
+Accumulated precipitation---------------- 
+
+Accumulated precipitation---------------- 
+
+累积降水

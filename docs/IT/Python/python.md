@@ -1037,4 +1037,24 @@ array([False,  True, False,  True])----------------
 
 # 使用 iloc 获取特定行和列的数据
 # 获取第二行（索引为1）的所有列数据
-row_1 = df.iloc[1, :]
+row_1 = df.iloc[1, :]---------------- 
+
+.iloc[行：列]---------------- 
+
+data.iloc[:,[0]] #取第0列所有行，多取几列格式为 data.iloc[:,[0,1]]---------------- 
+
+data.loc[:,['A']] #取'A'列所有行，多取几列格式为 data.loc[:,['A','B']]---------------- 
+
+'{:12.7f}'.format(14.12345678123)   >>> '  14.1234568'---------------- 
+
+'{:012.7f}'.format(14.12345678123)    >>> '0014.1234568'---------------- 
+
+{:>12s}   it is used to add space around the element your printing;> - Add space to left side; < - Add space to right side  ---------------- 
+
+>>> int('30.000')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '30.000'---------------- 
+
+>>> map(lambda x: x ** 2, [1, 2, 3, 4, 5])  # 使用 lambda 匿名函数
+[1, 4, 9, 16, 25]
