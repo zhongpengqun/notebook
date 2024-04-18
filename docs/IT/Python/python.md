@@ -724,6 +724,7 @@ django.db models.Manager
 
 - 被 @staticmethod 装饰的函数，调用的时候也要用self.xxx吗？
   - 从我的经验来看，是的，但是有点出乎意料
+    - 其实2种调用方法都可以，比如 Time.sec_minutes(10,5),t.sec_minutes(t.sec,5)
 
 - 单引号与双引号的区别，有区别吗？
   - x
@@ -977,20 +978,30 @@ c = np.concatenate((a, b))
   - `最后，记得将修改后的DataFrame赋值给一个变量，或使用inplace=True参数来直接修改原始的DataFrame`
 
 
-lines = f.readlines()
-            ^^^^^^^^^^^^^
+lines = f.readlines()
+
+            ^^^^^^^^^^^^^
+
 UnicodeDecodeError: 'gbk' codec can't decode byte 0xaa in position 1812: illegal multibyte sequence
 
-lines = f.readlines()
-            ^^^^^^^^^^^^^
-  File "<frozen codecs>", line 322, in decode
+lines = f.readlines()
+
+            ^^^^^^^^^^^^^
+
+  File "<frozen codecs>", line 322, in decode
+
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb7 in position 1550: invalid start byte
 
-    with open(text_file_path, 'rb') as f:
-        lines = f.readlines()
-        last_lines = lines[-2:]
-        print("----------------")
-        print('\n'.join([x.decode('utf8') for x in last_lines]))
+    with open(text_file_path, 'rb') as f:
+
+        lines = f.readlines()
+
+        last_lines = lines[-2:]
+
+        print("----------------")
+
+        print('\n'.join([x.decode('utf8') for x in last_lines]))
+
         print("----------------")
 
  t1.join()
@@ -1017,26 +1028,36 @@ wth_data.drop(wth_data.index[0], inplace=True)  # 删除第一行---------------
 
 A unique index is an index that contains non-duplicate labels. In such an index there cannot be two or more identical labels.---------------- 
 
-Monotonic Index
+Monotonic Index
+
 Monotonicity is a mathematical property that indicates a given function maintains a non-increasing or non-decreasing order throughout its domain---------------- 
 
-Monotonic Index
+Monotonic Index
+
 Monotonicity is a mathematical property that indicates a given function maintains a non-increasing or non-decreasing order throughout its domain---------------- 
 
-unique_index = pd.Index(list('abc'))
-unique_index.get_loc('b')
+unique_index = pd.Index(list('abc'))
+
+unique_index.get_loc('b')
+
 1---------------- 
 
->>> monotonic_index = pd.Index(list('abbc'))
->>> monotonic_index.get_loc('b')
+>>> monotonic_index = pd.Index(list('abbc'))
+
+>>> monotonic_index.get_loc('b')
+
 slice(1, 3, None)---------------- 
 
->>> non_monotonic_index = pd.Index(list('abcb'))
->>> non_monotonic_index.get_loc('b')
+>>> non_monotonic_index = pd.Index(list('abcb'))
+
+>>> non_monotonic_index.get_loc('b')
+
 array([False,  True, False,  True])---------------- 
 
-# 使用 iloc 获取特定行和列的数据
-# 获取第二行（索引为1）的所有列数据
+# 使用 iloc 获取特定行和列的数据
+
+# 获取第二行（索引为1）的所有列数据
+
 row_1 = df.iloc[1, :]---------------- 
 
 .iloc[行：列]---------------- 
@@ -1051,10 +1072,105 @@ data.loc[:,['A']] #取'A'列所有行，多取几列格式为 data.loc[:,['A','B
 
 {:>12s}   it is used to add space around the element your printing;> - Add space to left side; < - Add space to right side  ---------------- 
 
->>> int('30.000')
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+>>> int('30.000')
+
+Traceback (most recent call last):
+
+  File "<stdin>", line 1, in <module>
+
 ValueError: invalid literal for int() with base 10: '30.000'---------------- 
 
->>> map(lambda x: x ** 2, [1, 2, 3, 4, 5])  # 使用 lambda 匿名函数
+>>> map(lambda x: x ** 2, [1, 2, 3, 4, 5])  # 使用 lambda 匿名函数
+
 [1, 4, 9, 16, 25]
+
+
+- @property
+  - https://www.liaoxuefeng.com/wiki/1016959663602400/1017502538658208
+    - 可以让调用者写出简短的代码，同时保证对参数进行必要的检查
+    - 还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性
+    - 练习, 给一个Screen对象加上width和height属性，以及一个只读属性resolution
+```
+class Student(object):
+    @property
+    def score(self):
+        return self._score
+    @score.setter
+    def score(self, value):
+        if not isinstance(value, int):
+            raise ValueError('score must be an integer!')
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 ~ 100!')
+        self._score = value
+```
+---------------- 
+
+od = OrderedDict()
+
+od['a'] = 1
+
+od['b'] = 2
+
+od['c'] = 3
+
+od['d'] = 4
+
+
+
+for key, value in od.items():
+
+    print(key, value)---------------- 
+
+datetime.strptime(dt_string, "%m/%d/%Y %H:%M:%S")---------------- 
+
+>>> from collections import Counter
+
+>>> Counter([11,22,22])
+
+Counter({22: 2, 11: 1})---------------- 
+
+获取上上级目录
+
+print(os.path.abspath(os.path.join(os.getcwd(), "../..")))---------------- 
+
+>>> 1/3
+
+0.3333333333333333
+
+>>> 1//3
+
+0---------------- 
+
+selected = random.choices(population, k=3)---------------- 
+
+re.sub() 的详细用法，该函数主要用于替换字符串中的匹配项---------------- 
+
+        xx = re.findall(r'[\u4e00-\u9fff]|[≥℃≤＞＜]|\d|[a-zA-Z]+', col)
+
+---------------- 
+
+>>> '大风_大于等于1天'.strip('_大于等于1天')
+
+'风'---------------- 
+
+>>> '大风_大于天天天天天天天天天天天天天天天天等于1天'.strip('_大于等于1天')
+
+'风'---------------- 
+
+Tuples are ordered collections of elements, which are immutable (meaning they can't be changed once created). Sets, on the other hand, are unordered collections of unique elements---------------- 
+
+>>> _tuple=(1,2,1)
+>>> _tuple
+(1, 2, 1)---------------- 
+
+>>> s
+'{$.precipitation_6}\t{$.wind_6}\t{$.tmax_6}/{$.tmin_6}'
+>>> re.findall("{\$\.(.*?)}", s, re.DOTALL)
+['precipitation_6', 'wind_6', 'tmax_6', 'tmin_6']---------------- 
+
+>>> re.findall("{\$\.(.*?)}", s)
+['precipitation_6', 'wind_6', 'tmax_6', 'tmin_6']---------------- 
+
+python正则表达式 （.*?）与（.*）的区别  https://blog.csdn.net/m0_37962192/article/details/103768541---------------- 
+
+（.*?）是非贪婪的，即匹配最少数量的就够了

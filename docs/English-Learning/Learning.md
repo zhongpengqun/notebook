@@ -1812,4 +1812,15 @@ Accumulated precipitation----------------
 
 Accumulated precipitation---------------- 
 
-累积降水
+累积降水---------------- 
+
+未来一周的天气 ---------------- 
+
+weather for the coming week
+---------------- 
+
+self._weather_in_week---------------- 
+
+leap year---------------- 
+
+v.values()
