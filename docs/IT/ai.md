@@ -1,3 +1,7 @@
+#### Numpy 英文文档
+https://numpy.org/doc/stable/
+
+
 - Which technical 适合 to get started ?
 - 为什么需要显卡来做ai
 	- 对计算机的硬件要求
