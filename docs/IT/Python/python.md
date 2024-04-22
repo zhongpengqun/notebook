@@ -1173,4 +1173,6 @@ Tuples are ordered collections of elements, which are immutable (meaning they ca
 
 python正则表达式 （.*?）与（.*）的区别  https://blog.csdn.net/m0_37962192/article/details/103768541---------------- 
 
-（.*?）是非贪婪的，即匹配最少数量的就够了
+（.*?）是非贪婪的，即匹配最少数量的就够了---------------- 
+
+                days_condition = re.findall(f'_(大于等于|小于等于|大于|小于){days_count}d', cc)[0]
