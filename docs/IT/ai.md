@@ -36,3 +36,13 @@ https://www.bilibili.com/video/BV1GC4y15736/?spm_id_from=333.337.search-card.all
 ### Pytorch入门到精通！不愧是公认讲的最好的【pytorch教程】12小时带你从入门到进阶（深度学习/PyTorch安装/Pytorch教程/AI/神经网络）
 https://www.bilibili.com/video/BV1TN411k7hT/?spm_id_from=333.788.recommend_more_video.0
 
+
+##### e的x次方
+https://www.bilibili.com/video/BV1X84y1Q75y/?spm_id_from=333.788.recommend_more_video.2
+
+https://www.bilibili.com/video/BV1gh4y1a7ti/?spm_id_from=333.788.recommend_more_video.-1
+
+
+### 【完整版200集】B站最易懂的机器学习算法，回归算法、聚类算法、决策树、随机森林、神经网络、贝叶斯算法、支持向量机等十大机器学习算法从0基础到精通!
+https://www.bilibili.com/video/BV1Kx421X7SY/?spm_id_from=333.788.recommend_more_video.4
+
