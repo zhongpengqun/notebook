@@ -25,3 +25,9 @@ keras入门   https://www.bilibili.com/video/BV1Ct411H7rm/?spm_id_from=333.337.s
 	- 底层是tensorflow
 		- 需要先安装TensorFlow
 	- 优点简单，确定速度慢
+
+
+### 基于Python+Numpy手写数字识别
+
+### 10分钟入门神经网络 PyTorch 手写数字识别
+https://www.bilibili.com/video/BV1GC4y15736/?spm_id_from=333.337.search-card.all.click
