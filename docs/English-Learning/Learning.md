@@ -1823,4 +1823,7 @@ self._weather_in_week----------------
 
 leap year---------------- 
 
-v.values()
+v.values()---------------- 
+
+Currently, TgCrypto is supported till python 3.11
+
