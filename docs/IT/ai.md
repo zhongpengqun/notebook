@@ -31,3 +31,8 @@ keras入门   https://www.bilibili.com/video/BV1Ct411H7rm/?spm_id_from=333.337.s
 
 ### 10分钟入门神经网络 PyTorch 手写数字识别
 https://www.bilibili.com/video/BV1GC4y15736/?spm_id_from=333.337.search-card.all.click
+
+
+### Pytorch入门到精通！不愧是公认讲的最好的【pytorch教程】12小时带你从入门到进阶（深度学习/PyTorch安装/Pytorch教程/AI/神经网络）
+https://www.bilibili.com/video/BV1TN411k7hT/?spm_id_from=333.788.recommend_more_video.0
+
