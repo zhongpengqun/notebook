@@ -1,9 +1,3 @@
----
-layout: default
-title: Hello
-description: Introduction about this site and me.
----
-
 - Induction vs Deduction
 https://www.youtube.com/watch?v=yAjkQ1YqLEE
 
@@ -264,5 +258,3 @@ https://www.youtube.com/watch?v=yAjkQ1YqLEE
 https://www.youtube.com/watch?v=302eJ3TzJQU
 - College Algebra - Full Course
 https://www.youtube.com/watch?v=LwCRRUa8yTU
-
-[back](./)
