@@ -1,0 +1,95 @@
+- pandas与numpy的关系
+    - pandas是建立在NumPy之上的库，可以直接调用NumPy的函数和方法。pandas中的DataFrame和Series可以通过.values属性转换为NumPy的ndarray，便进行NumPy的算和操作。同时，pandas也提供了很多与NumPy配套使用的工具，如pandas的数据结构可以接受NumPy数组作为输入，pandas的函数和方法也能返回NumPy数组。
+    - array VS list
+
+- 行数列数
+    - df.shape[0]， df.shape[1]
+
+- API Json转化为DataFrame
+    - df = pd.DataFrame(data)
+    - df = pd.read_json('data.json')
+
+- 从第1行开始apply某列, todo
+    - df['A'] = df['A'].apply(lambda x: 'Positive' if x > 0 else 'Non-positive')
+
+- 获取某列的distinct值s
+    - df['sectionID'].unique().tolist()
+        - distinct 2个column呢？
+            - df.groupby(['col_a', 'col_b']).ngroups  个数
+            - 或 len(set(zip(df['col_a'],df['col_b'])))
+
+- 提取rows where组成一个新的DataFrame
+    - result[_device] = df.loc[(df['deviceCode'] == _device)]
+        - https://stackoverflow.com/questions/63529322/how-to-create-new-dataframe-by-filtering-a-column-of-another-dataframe
+    - 抽取列组成新df
+
+- 解释一下
+    for idx, row in data.iterrows():
+        mask = combined_df['datetime'] == row['target_dt']
+        for data_col, combined_col in column_mapping.items():
+            combined_df.loc[mask, combined_col] = row[data_col]
+
+- 连续3天温度>30的rows
+
+- .apply(func  如果func有多个传入参数呢？
+    - df.apply(some_func, var1='DOG', axis=1) 或 df.apply(some_func, args=('DOG', ), axis=1)
+    - 如果出于任何原因，这对你的用例不起作用，那么你可以回到使用 lambda： df.apply(lambda row: some_func(row, 'DOG'), axis=1)
+
+- pandas.api.types.is_scalar
+    - In pandas, scalar values are single values like integers, floats, or strings. When you're creating a DataFrame from these values, pandas needs an index to structure the data.
+    - This includes:
+        numpy array scalar (e.g. np.int64)
+        Python builtin numerics
+        Python builtin byte arrays and strings
+        None
+        datetime.datetime
+        datetime.timedelta
+        Period
+        decimal.Decimal
+        Interval
+        DateOffset
+        Fraction
+        Number.
+    - 我的理解是不可变的值被视为scalar
+
+- 四种有关数据透视的通用函数
+    pandas.melt()
+    pandas.pivot()
+    pandas.pivot_table()
+    pandas.crosstab()
+
+- df.isna().any().any()  &  df.isna().any()  & df.isna().all()
+    - DataFrame.all() method checks whether all elements are True, potentially over an axis.
+
+- pandas vs SQL
+    - order by
+        - 在pandas中我们可以用df.sort_values()函数，这个函数接受'column_to_be_sorted',ascending = True表示升序排序,ascending = False表示降序排序
+            - 比如：xp.sort_values(by=['msgTimeStr'], ascending=True, inplace=True), 取第一行：.iloc[0]
+
+- index
+    - 如果不给序列一个指定的索引值，则序列自动生成一个从0开始的自增索引
+    - 如果不想陷入麻烦，那么请不要把纯浮点以及任何混合类型（字符串、整数、浮点类型等的混合）作为索引
+    - s2 = pd.Series([1, 2, 3, 4, 5, 6],index=['a', 'b', 'a', 'a', 'a', 'c'])
+        - s2['a']
+        - s2[['c', 'b']]
+    - 指定某一列为索引
+
+- 将所有列倒序排列
+    - df.iloc[:, ::-1]
+    - df.iloc[:, [-1,-2,-3,-4]]
+
+- 交换两列位置
+    - # 方法1:使用 .reindex() 方法
+    - # 方法2:直接指定列的顺序
+
+- Window
+    - Rolling.aggregate
+    - Rolling.quantile
+    - Rolling.cov([other, pairwise, ddof])
+        - 滚动样本协方差
+            - 当x增大时, y也增大；或者x减小时，y也减小,  同向变化，此时称  正相关,协方差大于零
+            - 当x增大时，y可能增大也可能减小，x减小时...不相关，协方差等于零
+        - 我们来考察一下身高与体重的相关性
+
+- resample方法用于对时间序列数据进行重新采样。重新采样是指将时间序列数据的频率从一个频率转换为另一个频率，比如从按天采样转换为按月采样。
+    - 如何按天取样？
