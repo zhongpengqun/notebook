@@ -148,11 +148,13 @@ f.e.
 ```shell
 apiVersion: batch/v1
 kind: Job
-metadata: 
+metadata:   # 
   name:
   namespace:
   labels:
     controller: job
+# spec 是规约，规格的意思，spec是必需的，它描述了对象的期望状态——希望对象所具有的特征。当创建Kubernetes对象时，必须提供对象的规约，用来描述该对象的期望状态，以及关于对象的一些基本信息
+# spec 总是和 metadata同时出现的吗？貌似是的
 spec:
   completions: 1  #指定job需要成功运行pods的次数，默认值为1
   parallelism: 1  #指定job在任一时刻应该并发运行pods的数量，默认值为1
@@ -532,3 +534,6 @@ ensure CRDs are installed first
 
 - kubectl delete -n $CI_NAMESPACE -f -
   - ??
+
+- 在 Kubernetes 中，metadata 主要用于描述 Kubernetes 对象的特征和信息。其中包括名称、命名空间、标签、注释等信息。metadata 包含在 Kubernetes 对象的规范中，用于标识和查询对象。
+
