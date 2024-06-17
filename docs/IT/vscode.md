@@ -1,2 +1,0 @@
-- Set python interpreter
-    - https://www.youtube.com/watch?v=BPLUAKHuAYw
