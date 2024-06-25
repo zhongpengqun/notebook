@@ -537,3 +537,5 @@ ensure CRDs are installed first
 
 - 在 Kubernetes 中，metadata 主要用于描述 Kubernetes 对象的特征和信息。其中包括名称、命名空间、标签、注释等信息。metadata 包含在 Kubernetes 对象的规范中，用于标识和查询对象。
 
+
+- 如何做到，当某个步骤错误的时候， 中止k8s的deployment ？

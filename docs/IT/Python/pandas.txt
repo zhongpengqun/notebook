@@ -93,3 +93,10 @@
 
 - resample方法用于对时间序列数据进行重新采样。重新采样是指将时间序列数据的频率从一个频率转换为另一个频率，比如从按天采样转换为按月采样。
     - 如何按天取样？
+
+dbconnect = create_engine('mysql+mysqldb://username:pwd@192.168.33.33:3307/databasename?charset=utf8')
+pd.io.sql.to_sql(output_df, '表名', con=dbconnect, if_exists='append')
+
+- 对于时间戳的，怎么只取最近的一个
+
+- 如何添加一列

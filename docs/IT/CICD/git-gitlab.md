@@ -390,3 +390,51 @@ fatal: unable to access 'https://github.com/zhongpengqun/zhongpengqun.github.io.
 -  before_script:
   - 可以有多个吗？
     - `用于定义在每个作业执行之前所运行的一系列脚本命令`，所以应该一个就够了
+  
+
+Git pull 错误 gnutls_handshake() failed: Error in the pull function
+CosmoSociologist
+于 2021-06-15 17:00:19 发布
+Git pull 错误 gnutls_handshake() failed: Error in the pull function
+前几天捣鼓了一下VPN，最终还是配置失败了。之后发现本地git 和远程仓库竟然连不上了？？ git pull和git push一直遇到下面的问题。
+fatal: unable to access 'https://github.com/xxxxxx/': gnutls_handshake() failed: Error in the pull function.
+怀疑可能是VPN的问题，关闭了VPN，甚至卸载了openvpn之后还是连不上。网上搜了一下有说是VPN问题，有说改proxy的，也有的说要使用openSSL重新编译git的；还有的比较幸运的同学隔几天自己就好了。
+连续捣鼓了两天后，略微明白了错误的原因。
+
+下面是从StackOverFlow上摘录的
+
+This error means that Git cannot establish a secure connection to the server you’re trying to use. Your version of Git uses the GnuTLS library to set up TLS (encrypted) connections, and for some reason that setup process is failing.
+This could be for a couple of reasons. One is that your server (which one you haven’t mentioned) is using an incompatible set of cipher suites or TLS versions, and there’s no encryption algorithms in common that can be chosen. It’s also possible that you have someone tampering with the connection via a MITM device.
+The version of Git and GnuTLS you’re using should work just fine with most standard servers. Re-installing it won’t help. You can try upgrading to a newer version of Debian, or you can try building Git yourself against a version of libcurl using OpenSSL. You can also just switch to SSH-based remotes, which will avoid this incompatibility altogether.
+
+原因是GnuTLS跟服务器连不上了，可以看到下面git的Depends里面有libcurl3-gnutls。我们可以将gnutls替换为openssl，使用ssl进行传输。
+
+~$ apt show git
+Package: git
+Version: 1:2.32.0-1~ppa0~ubuntu18.04.1
+Priority: optional
+Section: vcs
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Installed-Size: 36.9 MB
+Provides: git-completion, git-core
+Depends: libc6 (>= 2.16), libcurl3-gnutls (>= 7.56.1), libexpat1 (>= 2.0.1), libpcre2-8-0 (>= 10.31), zlib1g (>= 1:1.2.0), perl, liberror-perl, git-man (>> 1:2.32.0), git-man (<< 1:2.32.0-.)
+使用openssl替代gnutls重新编译git
+这篇教程 比较新一点，大家可以参考这篇教程修改 git 的deb包。
+
+因为我搜到的好几篇使用这个方法的中文帖子略有过时，我在这里对这些比较老的帖子做一下修正（大家参考上面的帖子即可）。
+
+很多老帖子提到的gksu 在较新的Ubuntu版本中已经移除了，gksu就是给GUI提供sudo权限用的，大家可以使用vim修改debian/control 和 debian/rule。
+
+使用SSH远程仓库
+我这个方法搞到一半，突然想到了一种绕过这个问题的方法，答案就在刚才StackOverFlow回答的最后一句话：
+
+You can also just switch to SSH-based remotes, which will avoid this incompatibility altogether.
+
+Cloning with HTTPS URLs
+The https:// clone URLs are available on all repositories, regardless of visibility. https:// clone URLs work even if you are behind a firewall or proxy. When you git clone, git fetch, git pull, or git push to a remote repository using HTTPS URLs on the command line, Git will ask for your GitHub username and password.
+
+Cloning with SSH URLs
+SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the public key to your GitHub account. For more information, see “Connecting to GitHub with SSH.” When you git clone, git fetch, git pull, or git push to a remote repository using SSH URLs, you’ll be prompted for a password and must provide your SSH key passphrase.
+
+我们clone远程仓库的时候就可以使用SSH协议进行传输，这样push的时候自然就使用SSH从而避免了上面的问题。这种方法只能用与自己的repo。
+原文链接：https://blog.csdn.net/inghoG/article/details/117927858

@@ -609,3 +609,8 @@ denied: requested access to the resource is denied
 
 --dry-run=client：模拟创建pod，但不会真的创建
 
+
+- container如何访问宿主机的一个web服务？
+    --network=host, 然后container中这样访问，http://127.0.0.1:8888, 亲测可用
+
+- --add-host ?

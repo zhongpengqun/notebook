@@ -478,7 +478,6 @@ Expanding the usefulness of the serializers is something that we would like to a
         - queryset是有cache的，因此 `for x in A.objects.filter()`只会运行一次select，但是result会都塞在memory中.
             - iterator可以防止大cache，但是会增加查询次数
 
-- iterator
 - Q函数
   - 作用：对对象进行复杂查询，并支持&（and）,|（or），~（not）操作符。
   - Example: search_obj=Asset.objects.filter(Q(hostname__icontains=keyword)|Q(ip=keyword))
@@ -659,6 +658,21 @@ importlib.reload(module)
 - gpt-3.5-turbo
 
 - next(iter(
+  - 在Python 中,列表(List)是可迭代对象(Iterable),但并不是迭代器(Iterator)。但可以使用内置函数 iter() 将列表转换为迭代器。
+    - 可迭代对象必须实现__iter__, 迭代器必须实现__iter__和__next__
+  - 文件是迭代器，所以可以直接使用next()，而不需要转换成迭代器
+  - 迭代器与列表相比，迭代器是延迟计算(惰性求值：azy evaluation)，更节省内存
+    - 比如列表含有中一千万个整数，需要占超过400M的内存，而迭代器只需要几十个字节的空间。因为它并没有把所有元素装载到内存中，而是等到调用 next 方法时候才返回该元素（按需调用 call by need 的方式
+    - 本质上 python的for 语句循环就是不断地调用迭代器的next方法）
+    - 使用 for 循环或 next() 函数进行遍历
+    - 使用 send() 方法向生成器发送值，使用 close() 方法关闭生成器
+    - 使用生成器实现并发
+      - 异步生成器和 async/await
+
+  - generator
+    - 生成器是一种特殊的迭代器，通过yield 关键字来创建，它可以延迟执行，并逐个生成值。
+    - 在调用生成器运行的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息，返回 yield 的值。并在下一次执行 next() 方法时从当前位置继续运行。
+    - yield 表达式和语句仅在定义 generator 函数时使用，并且仅被用于生成器函数的函数体内部。 在函数定义中使用 yield 就足以使得该定义创建的是生成器函数而非普通函数。
 
 - @pytest.fixture()
   - https://blog.csdn.net/qq_42610167/article/details/119818358
@@ -1159,33 +1173,42 @@ re.sub() 的详细用法，该函数主要用于替换字符串中的匹配项--
 
 Tuples are ordered collections of elements, which are immutable (meaning they can't be changed once created). Sets, on the other hand, are unordered collections of unique elements---------------- 
 
->>> _tuple=(1,2,1)
->>> _tuple
+>>> _tuple=(1,2,1)
+
+>>> _tuple
+
 (1, 2, 1)---------------- 
 
->>> s
-'{$.precipitation_6}\t{$.wind_6}\t{$.tmax_6}/{$.tmin_6}'
->>> re.findall("{\$\.(.*?)}", s, re.DOTALL)
+>>> s
+
+'{$.precipitation_6}\t{$.wind_6}\t{$.tmax_6}/{$.tmin_6}'
+
+>>> re.findall("{\$\.(.*?)}", s, re.DOTALL)
+
 ['precipitation_6', 'wind_6', 'tmax_6', 'tmin_6']---------------- 
 
->>> re.findall("{\$\.(.*?)}", s)
+>>> re.findall("{\$\.(.*?)}", s)
+
 ['precipitation_6', 'wind_6', 'tmax_6', 'tmin_6']---------------- 
 
 python正则表达式 （.*?）与（.*）的区别  https://blog.csdn.net/m0_37962192/article/details/103768541---------------- 
 
 （.*?）是非贪婪的，即匹配最少数量的就够了---------------- 
 
-                days_condition = re.findall(f'_(大于等于|小于等于|大于|小于){days_count}d', cc)[0]
+                days_condition = re.findall(f'_(大于等于|小于等于|大于|小于){days_count}d', cc)[0]
+
 ---------------- 
 
 dict.setdefault(key, default)---------------- 
 
-print(re.findall(r"预[计|报].*[\?日]+.*?,", ss))
+print(re.findall(r"预[计|报].*[\?日]+.*?,", ss))
+
 ---------------- 
 
 ['预计4月?日-?日日均温稳定在12℃以上且无降雨,', '预计4月?日-?日有持续降水,', '预计4月?日-?日有持续低温阴雨天气,'---------------- 
 
-xx = re.findall(r"预[计|报].*?[\?日]+.*?,", ss)
+xx = re.findall(r"预[计|报].*?[\?日]+.*?,", ss)
+
 ---------------- 
 
 _extrame_weather---------------- 
@@ -1204,21 +1227,32 @@ code_str = "a = 10"
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。---------------- 
 
-g = {'x': 1, 'y': 2}
-l = {}
-exec('''
-global x,z
-x=100
-z=200
-m=300
-''', g, l)
-print(g)  # {'x': 100, 'y': 2,'z':200,......}
+g = {'x': 1, 'y': 2}
+
+l = {}
+
+exec('''
+
+global x,z
+
+x=100
+
+z=200
+
+m=300
+
+''', g, l)
+
+print(g)  # {'x': 100, 'y': 2,'z':200,......}
+
 print(l)  # {'m': 300}---------------- 
 
->>> set({1,2})==set({2,1}) 
+>>> set({1,2})==set({2,1}) 
+
 True---------------- 
 
 tuple(元组)、set(集合)---------------- 
 
->>> type({}) 
+>>> type({}) 
+
 <class 'dict'>
