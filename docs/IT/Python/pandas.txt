@@ -2,6 +2,9 @@
     - pandas是建立在NumPy之上的库，可以直接调用NumPy的函数和方法。pandas中的DataFrame和Series可以通过.values属性转换为NumPy的ndarray，便进行NumPy的算和操作。同时，pandas也提供了很多与NumPy配套使用的工具，如pandas的数据结构可以接受NumPy数组作为输入，pandas的函数和方法也能返回NumPy数组。
     - array VS list
 
+- 创建新的dataframe
+
+
 - 行数列数
     - df.shape[0]， df.shape[1]
 
