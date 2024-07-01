@@ -529,13 +529,6 @@ Solution:
     - 2. 使用--mount时，主机没有这个文件则报错。
     - docker run -v 时需要使用 absolute path
 
-
-#### docker-compose services
-
-
-#### docker-compose network
-- network_mode
-
 - eth 0
 
 - 如何让remote的机器上的端口能被访问，即设置为0.0.0.0这种，在remote上curl http://localhost:5000可以访问，但是curl 类似http://139.196.8.9:5000没用
@@ -614,3 +607,11 @@ denied: requested access to the resource is denied
     --network=host, 然后container中这样访问，http://127.0.0.1:8888, 亲测可用
 
 - --add-host ?
+
+- docker访问宿主机mysql ?
+    - docker run --network=host
+```
+WARNING: Published ports are discarded when using host network mode
+
+当使用 --network=host时， -p 参数失效
+```

@@ -103,3 +103,6 @@ pd.io.sql.to_sql(output_df, '表名', con=dbconnect, if_exists='append')
 - 对于时间戳的，怎么只取最近的一个
 
 - 如何添加一列
+
+- 读取csv
+    - df = pd.read_csv('data.csv')
