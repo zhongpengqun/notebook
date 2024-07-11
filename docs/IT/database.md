@@ -66,3 +66,4 @@ HAVING
 
 - data modeling tools
     - https://erd.dbdesigner.net/designer/schema/guest_template
+

@@ -615,3 +615,27 @@ WARNING: Published ports are discarded when using host network mode
 
 当使用 --network=host时， -p 参数失效
 ```
+
+
+```
+FROM golang:alpine
+COPY hello.go .
+RUN go build hello.go
+ 
+FROM alpine
+COPY --from=0 /go/hello .
+CMD ["./hello"]
+```
+
+# 镜像如何瘦身 ？
+    - 多阶段构建 multi-stage builds
+        - build 阶段使用基础镜像 golang，run 阶段使用基础镜像 scratch：2MB
+            - scratch
+            ```
+            Docker 还存在一个特殊的镜像，名为 scratch。这个镜像是虚拟的概念，并不实际存在，它表示一个空白的镜像。在 Dockerfile 中以 scratch 为基础镜像 (FROM scratch)，意味着不以任何镜像为基础，接下来所写的指令将作为镜像第一层开始存在。
+            对于 Linux 下静态编译的程序来说，并不需要有操作系统提供运行时支持，所需的一切库都已经在可执行文件里了，因此直接 FROM scratch 会让镜像体积更加小巧。使用 Go 语言开发的应用很多会使用这种方式来制作镜像，这也是为什么有人认为 Go 是特别适合容器微服务架构的语言的原因之一。
+            ```
+    - 如果实在不想折腾，可以选择一个折衷的镜像 xxx:slim。slim 镜像一般都基于 Debian 和 glibc，删除了许多非必需的软件包，优化了体积
+    - 如果构建过程中需要编译器，那么 slim 镜像不适合，除此之外大多数情况下还是可以使用 slim 作为基础镜像的
+
+- slim VS alpine
