@@ -1222,11 +1222,6 @@ code_str = "a = 10"
    print(a)     # 报错，因为 a 只在执行的命名空间中有效
    print(locals())  # 输出结果为 {'a': 10}
 
-作者：洋桃指鹿
-链接：https://www.zhihu.com/question/592788920/answer/2960934578
-来源：知乎
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。---------------- 
-
 g = {'x': 1, 'y': 2}
 
 l = {}
@@ -1256,3 +1251,7 @@ tuple(元组)、set(集合)----------------
 >>> type({}) 
 
 <class 'dict'>
+
+- if manage_strategy_dict is not None: 是否等效于 if not manage_strategy_dict:
+  - 不一样
+

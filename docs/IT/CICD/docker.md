@@ -639,3 +639,5 @@ CMD ["./hello"]
     - 如果构建过程中需要编译器，那么 slim 镜像不适合，除此之外大多数情况下还是可以使用 slim 作为基础镜像的
 
 - slim VS alpine
+
+- COPY requirements.txt ./  VS  COPY ./requirements.txt ./ 的区别？
