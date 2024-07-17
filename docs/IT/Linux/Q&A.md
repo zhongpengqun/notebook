@@ -2,4 +2,4 @@
     - $ (python3 -m http.server 9002 &); python scheduler.py 
 
 
-- linux命令行设置crontab
+- linux一行命令行设置crontab
