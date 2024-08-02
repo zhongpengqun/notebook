@@ -514,3 +514,12 @@ export ENV="dev"
 envsubst < docker-compose-demo.yml > docker-compose.yml
 ```
 
+- 删除/etc/apt/sources.list后便无法install包了，说明他是用来locate包的，对吧？
+```
+# mv /etc/apt/sources.list /etc/apt/sources.list.bak
+# apt-get install vim
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package vim
+```

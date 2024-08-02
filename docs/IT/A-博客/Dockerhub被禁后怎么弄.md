@@ -10,9 +10,15 @@ https://hub.docker.com/ 无法访问，docker pull不了了
             - https://cr.console.aliyun.com/repository/cn-hangzhou/zhongpengqun/wanderer/details
 
 ```
-$ docker login --username=xinshi261617 registry.cn-hangzhou.aliyuncs.com
-Password: 
+$ docker login --username=ZhongPengQun registry.cn-hangzhou.aliyuncs.com
+Password: X*7
+WARNING! Your password will be stored unencrypted in /home/ubuntu/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
 ```
+
 
 
 ```
