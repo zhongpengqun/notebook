@@ -10,3 +10,5 @@ Execution of job "job (trigger: interval[0:02:00], next run at: 2024-07-03 00:58
 
 
 ```
+
+- 为什么需要使用flask-sqlalchemy？

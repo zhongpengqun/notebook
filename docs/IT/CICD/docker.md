@@ -641,3 +641,10 @@ CMD ["./hello"]
 - slim VS alpine
 
 - COPY requirements.txt ./  VS  COPY ./requirements.txt ./ 的区别？
+
+- 修改已运行容器端口映射？
+```
+$ docker stop <container_id>
+$ docker commit <container_id> new_image_name
+
+```

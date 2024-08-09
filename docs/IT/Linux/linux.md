@@ -523,3 +523,10 @@ Building dependency tree... Done
 Reading state information... Done
 E: Unable to locate package vim
 ```
+
+```
+$ ps -ef|grep mysql
+// user, PID, PPID(父进程ID)
+mysql     2080     1  0 8月05 ?       00:04:01 /usr/sbin/mysqld --daemonize --pid-file=/run/mysqld/mysqld.pid
+ubuntu    9542  6622  0 01:29 pts/2    00:00:00 grep --color=auto mysql
+```
