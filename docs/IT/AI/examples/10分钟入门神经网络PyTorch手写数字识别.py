@@ -1,5 +1,4 @@
 ## https://gitee.com/kongfanhe/pytorch-tutorial/blob/master/test.py#
-
 import torch
 from torch.utils.data import DataLoader
 from torchvision import transforms
