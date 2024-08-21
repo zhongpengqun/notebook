@@ -1255,3 +1255,22 @@ tuple(元组)、set(集合)----------------
 - if manage_strategy_dict is not None: 是否等效于 if not manage_strategy_dict:
   - 不一样
 
+```
+from retry import retry
+ 
+@retry()
+def make_trouble():
+    print ('retryxing...')
+    raise
+ 
+if __name__ == '__main__':
+    make_trouble()
+ 
+# 输出: 一直重试，直到运行成功
+retryxing...
+retryxing...
+retryxing...
+retryxing...
+retryxing...
+retryxing...
+```
