@@ -22,7 +22,9 @@
 - 创建pytorch运行环境
 ```
 # 需要指定3.9的版本，否则会报错dll的错：OSError: [WinError 126] 找不到指定的模块。 Error loading "C:\Users\zlzk\anaconda3\envs\myenv\Lib\site-packages\torch\lib\fbgemm.dll" or one of its dependencies.
-$ conda create -n py39 python=3.9     
+
+打开Anaconda Prompt
+$ conda create -n py39 python=3.9
 $ conda activate py39
 ```
 
@@ -102,3 +104,9 @@ pip install torch==2.4.0
 pip install torchvision==0.19.0
 python main.py
 即可
+
+
+## 问题
+- 过程能可视化吗？
+    - torchviz
+

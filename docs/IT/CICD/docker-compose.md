@@ -35,3 +35,5 @@ echo "mongodb-org-tools hold" | dpkg --set-selections
 - 
 
 - docker-compose services
+
+- 在阿里云上启动的服务如何被外部访问，即 0.0.0.0 访问

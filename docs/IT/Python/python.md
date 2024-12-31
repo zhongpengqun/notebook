@@ -1274,3 +1274,9 @@ retryxing...
 retryxing...
 retryxing...
 ```
+
+```
+    def extract_render_vars(line):
+        _vars = re.findall("{\$(.*?)}", line)
+        return _vars
+```

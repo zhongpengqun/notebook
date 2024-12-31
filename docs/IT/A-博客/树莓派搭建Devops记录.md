@@ -392,3 +392,6 @@ E0807 02:49:53.264814  191354 memcache.go:265] couldn't get current server API g
 E0807 02:49:53.265598  191354 memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
 ```
+
+
+## 固定IP

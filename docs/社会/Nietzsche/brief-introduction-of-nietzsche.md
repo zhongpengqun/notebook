@@ -69,7 +69,6 @@ Nietzsche 于 1989， 精神崩溃, 送往精神病院, and dead in 10 years.
 《瓦格纳的情况》 《偶像的黄昏》《反基督教者》《尼采对瓦格纳》《瞧！这个人》 [5-6]
 
 
-
 ### My questions
 - When started to write Thus spoke Zarathusta, what was Nietzsche 精神状态, calm, 平静, happy, or 悲伤，绝望 ?
 - 抱住受伤的老马, 随后发疯, 当时的完整画面，细节
