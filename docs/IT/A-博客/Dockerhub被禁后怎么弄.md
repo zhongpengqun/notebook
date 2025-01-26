@@ -3,11 +3,15 @@ https://hub.docker.com/ 无法访问，docker pull不了了
 - 这种情况下，如何pull到本地？
     - https://github.com/cmliu/CF-Workers-docker.io
         - http://docker.fxxk.dedyn.io
+        - docker.1ms.run
 
 - 阿里云容器镜像服务
     - https://cr.console.aliyun.com/cn-hangzhou/instances
         - push image上去
             - https://cr.console.aliyun.com/repository/cn-hangzhou/zhongpengqun/wanderer/details
+
+        - images list
+            - https://cr.console.aliyun.com/repository/cn-hangzhou/zhongpengqun/wanderer/images
 
 ```
 $ docker login --username=ZhongPengQun registry.cn-hangzhou.aliyuncs.com

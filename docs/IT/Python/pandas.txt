@@ -118,3 +118,6 @@ pd.io.sql.to_sql(output_df, '表名', con=dbconnect, if_exists='append')
 
 - 读取csv
     - df = pd.read_csv('data.csv')
+
+- 如何按自己的顺序依次输出dataframe里的元素？
+    - 比如df形状旋转90度

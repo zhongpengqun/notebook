@@ -1,0 +1,3 @@
+- Adding data to Tkinter Treeview using insert() to update view & place the data in top or bottom row
+    - https://www.youtube.com/watch?v=qjB-B0kzTUQ
+    - https://docs.python.org/zh-tw/3.11/library/tkinter.ttk.html

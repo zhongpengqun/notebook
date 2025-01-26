@@ -541,3 +541,8 @@ ensure CRDs are installed first
 - 如何做到，当某个步骤错误的时候， 中止k8s的deployment ？
 
 - services中的ports:能否多个，比如http协议container有几个应用，都是不同的端口，都想暴露出来
+
+
+- port: 与 targetPort: 区别？
+  - https://stackoverflow.com/questions/61668858/what-is-the-advantage-of-allowing-port-and-targetport-to-be-different-in-kuberne
+  - https://stackoverflow.com/questions/76080757/why-does-a-nodeport-need-a-port-in-kubernetes
